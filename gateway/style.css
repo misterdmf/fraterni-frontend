@@ -1,21 +1,3 @@
-#itens {
-  height: 100px;
+#balance {
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
-
-#item {
-  /* margin: 0 15px; */
-  width: 70px;
-}
-
-#img-list {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-#item-img {
 }
