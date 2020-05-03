@@ -5,3 +5,12 @@
 .fontColor {
   color: white !important;
 }
+
+.logo {
+  font-family: Montserrat Alternates;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 49px;
+  color: white !important;
+}
