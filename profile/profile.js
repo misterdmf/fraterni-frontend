@@ -1,33 +1,26 @@
 $(document).ready(function () {
-  const profiles = [
-    {
-      id: 1,
-      name: "Fulano",
-      cpf: "12341412",
-      email: "dsadas@afas.com",
-      saldo: 12,
-      img: "../public/avatar.jpg",
-    },
-    {
-      id: 2,
-      name: "Sicrano",
-      cpf: "12341412",
-      email: "dsadas@afas.com",
-      saldo: 23,
-      img: "",
-    },
-  ];
-
-  const id = getUrlParameter("id");
-
-  loadProfile(profiles[0]);
+  $.get(`https://api.fraterni.com.br/api/profile`, function (data) {
+    loadProfile(data.profile);
+  });
 });
 
 function loadProfile(profile) {
   $("#name").append(profile.name);
   $("#cpf").append(profile.cpf);
   $("#email").append(profile.email);
-  $("#saldo").append(`${profile.saldo} fraterni's`);
+  $("#balance").append(`${profile.balance}`);
+  $("#avatar").attr("src", profile.image);
 
-  $("#avatar").attr("src", profile.img);
+  for (const tran of profile.transations) {
+    const value = $("<span>", {
+      class: "badge badge-primary badge-pill",
+    }).append(1200);
+    const elem = $("<li>", {
+      class:
+        "list-group-item d-flex justify-content-between align-items-center",
+    })
+      .append(tran.institution)
+      .append(value);
+    $("#transations").append(elem);
+  }
 }
