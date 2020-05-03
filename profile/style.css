@@ -3,3 +3,10 @@
   width: 150px;
   height: 150px;
 }
+
+#ftLogo-menu {
+  background-color: blue;
+  padding: 15px;
+  font-size: x-large;
+  color: white;
+}

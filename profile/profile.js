@@ -9,12 +9,13 @@ function loadProfile(profile) {
   $("#cpf").append(profile.cpf);
   $("#email").append(profile.email);
   $("#balance").append(`${profile.balance}`);
+  $("#balanceMenu").append(`${profile.balance}`);
   $("#avatar").attr("src", profile.image);
 
   for (const tran of profile.transations) {
     const value = $("<span>", {
       class: "badge badge-primary badge-pill",
-    }).append(1200);
+    }).append(tran.value);
     const elem = $("<li>", {
       class:
         "list-group-item d-flex justify-content-between align-items-center",
