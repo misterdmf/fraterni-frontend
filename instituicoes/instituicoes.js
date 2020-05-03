@@ -1,39 +1,20 @@
 $(document).ready(function () {
-  const instuicoes = [
-    {
-      id: 1,
-      name: "Comunidade Católica Shalom",
-      city: "Fortaleza",
-      state: "Ceará",
-      img: "../public/logo-shalom.png",
-      description:
-        "Mussum Ipsum, cacilds vidis litro abertis. Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Vehicula non. Ut sed ex eros. Vivamus sit amet nibh non tellus tristique interdum. Mé faiz elementum girarzis, nisi eros vermeio. Quem num gosta di mim que vai caçá sua turmis!",
-    },
-    {
-      id: 2,
-      name: "Instituto Ayrton Senna",
-      city: "São Paulo",
-      state: "Sao Paulo",
-      img: "../public/logo-senna2.png",
-      description:
-        "Mussum Ipsum, cacilds vidis litro abertis. Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Vehicula non. Ut sed ex eros. Vivamus sit amet nibh non tellus tristique interdum. Mé faiz elementum girarzis, nisi eros vermeio. Quem num gosta di mim que vai caçá sua turmis!",
-    },
-  ];
-
-  loadCards(instuicoes);
+  $.get("https://api.fraterni.com.br/api/institutions", function (data) {
+    loadCards(data.institutions);
+  });
 });
 
 function loadCards(instuicoes) {
   const listInstuicoes = $("#listInstituicoes");
 
   for (let inst of instuicoes) {
-    const { id, name, city, state, img, description } = inst;
+    const { id, name, city, state, image, description } = inst;
 
     const card = $("<div>", { class: "card mt-2" });
     const cardBody = $("<div>", { class: "card-body" });
     const mainRow = $("<div>", { class: "row" });
     const divImg = $("<div>", { class: "col my-auto" }).append(
-      `<img src="${img}" alt="..." class="img-thumbnail mx-auto d-block" />`
+      `<img src="${image}" alt="..." class="img-thumbnail mx-auto d-block" />`
     );
     const divRightCard = $("<div>", { class: "col-12 col-lg-10 mr-4" });
 
