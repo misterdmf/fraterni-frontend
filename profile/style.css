@@ -5,8 +5,9 @@
 }
 
 #ftLogo-menu {
-  background-color: blue;
+  background-color: white;
   padding: 15px;
-  font-size: x-large;
-  color: white;
+  font-size: large;
+  color: #041068;
+  font-weight: bolder;
 }
